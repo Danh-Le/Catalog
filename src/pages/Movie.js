@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Movies from "../Movies.json";
-// import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 const Movie = () => {
   const params = useParams();
   const [movie, setMovie] = useState(Movies[params.id - 1]);
-  // const navigate = useNavigate();
-  // const handleButtonClick = () => {
-  //   navigate("/");
 
   return (
-    <>
+    <div className="movieCard">
       <img src={movie.image} alt={movie.name} />
       <h1>{movie.title}</h1>
-      <p>{movie.director}</p>
+      <p>Director: {movie.director}</p>
       <p>
+        Actors:
         {movie.stars.map((star) => {
           return (
             <ul>
@@ -24,9 +22,8 @@ const Movie = () => {
           );
         })}
       </p>
-      <p>{movie.description}</p>
-      {/* <button onClick={handleButtonClick}>Back to home</button> */}
-    </>
+      <p>Synopsis: {movie.description}</p>
+    </div>
   );
 };
 // };

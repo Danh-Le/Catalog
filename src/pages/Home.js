@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Movies from "../Movies.json";
+import "../App.css";
 
 const Home = () => {
   return (
-    <>
+    <div className="homePage">
       <h1>Movies list</h1>
       <ul>
         {Movies.map((movie) => (
@@ -13,7 +14,7 @@ const Home = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
